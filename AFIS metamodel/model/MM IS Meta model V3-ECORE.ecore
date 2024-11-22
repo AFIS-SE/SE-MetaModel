@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Model">
+  <eAnnotations source="Author:abhaya.&#xA;Created:02/06/15 16:45.&#xA;Title:Generic SE Meta Model.&#xA;Comment:.&#xA;"
+      references="#/"/>
+  <eSubpackages name="Unit Imports">
+    <eSubpackages name="Basic Units">
+      <eSubpackages name="Basic Length"/>
+      <eSubpackages name="Basic Mass"/>
+      <eSubpackages name="Basic Area"/>
+      <eSubpackages name="Basic Volume"/>
+      <eSubpackages name="Basic Time"/>
+      <eSubpackages name="Basic Electric Current"/>
+      <eSubpackages name="Basic Thermodynamic Temperature"/>
+      <eSubpackages name="Basic Amount of Substance"/>
+      <eSubpackages name="Basic Luminous Intensity"/>
+      <eSubpackages name="Basic Speed and Velocity"/>
+      <eSubpackages name="Basic Acceleration"/>
+      <eSubpackages name="Basic Mass Density"/>
+      <eSubpackages name="Basic Electric Current Density"/>
+      <eSubpackages name="Basic Amount of Substance Concentration"/>
+      <eSubpackages name="Basic Magnetic Field Strength"/>
+      <eSubpackages name="Basic Luminance"/>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="SE processes &amp; Models"/>
+  <eSubpackages name="Examples"/>
+  <eSubpackages name="Conclusion &amp; Perspectives"/>
+  <eSubpackages name="SE Meta Model V1">
+    <eSubpackages name="Operational Need Analysis">
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Artifact">
+        <eAnnotations source="An element which is included within operational concept to describe it with adequate details."
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Activity" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="An action, a task or a function performed to achieve a desired outcome which can use input and output flows or command and control events."
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"
+            eOpposite="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity/%.1"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"
+            containment="true" eOpposite="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity/%"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Flow"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Property"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="An ability of a system to achieve a specific objective (which mmeets stakeholder needs) by performing in the intended operational environment under stated conditions. [SOURCE: INCOSE SE Handbook V4]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Capability"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Strategic/Effects"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Entity" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="An entity (user, other system, device, group, organization...) surrounding the system-of-interest which interacts with the SOI and influence it's intended mission. [Defined based on the definition from ARCADIA]&#xA;"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Entity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Mode"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"
+            changeable="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Property"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Flow"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Mode" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="An operational situation/configuration of a system characterized by its active services/functions. Inside an operational mode the system can perform specific operational scenarios, and so activate the corresponding services/functions. [SOURCE: SEBoK:2017]&#xA;distinct operating capability of the system during which&#xA;some or all of the system’s functions may be performed to a full or limited&#xA;degree. [Buede]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Mode"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Concept">
+        <eAnnotations source="&quot;ConOps and OpsCon (INCOSE Handbook V4 pg 51)&#xA; ANSI/AIAA G‐043A‐2012 states that the terms “concept of operations” and “operational concept” are often used interchangeably but notes that an important distinction exists in that each has a separate purpose and is used to meet different ends.&quot;&#xA;This handbook uses these terms so that they are consistent with ANSI/AIAA G‐043A‐2012 and ISO/IEC/IEEE 29148:2011, the same way in which they are used in the US Department of Defense (DoD) and many other defense forces. &#xA;&quot;ISO/IEC/IEEE 29148 describes the ConOps as &#xA;The ConOps, at the organization level, addresses the leadership’s intended way of operating the organization.&quot;&#xA;It may refer to the use of one or more systems, as black boxes, to forward the organization’s goals and objectives.&#xA;The ConOps document describes the organization’s assumptions or intent in regard to an overall operation or series of operations of the business with using the system to be developed, existing systems, and possible future systems. This document is frequently embodied in longrange strategic plans and annual operational plans. The ConOps document serves as a basis for the organization to direct the overall characteristics of the future business and systems, for the project to understand its background, and for the users of [ISO/IEC/IEEE 29148] to implement the stakeholder requirements elicitation.&#xA;&quot;ISO/IEC/IEEE 29148 describes the OpsCon as&#xA;A System Operational Concept (OpsCon) document describes what the system will do (not how it will do it) and why (rationale). An OpsCon is a user‐oriented document that describes system characteristics of the to‐be‐delivered system from the user’s viewpoint. The OpsCon document is used to communicate overall quantitative and qualitative system characteristics to the acquirer, user, supplier and other organizational elements.&quot;&#xA;Both the ConOps and the OpsCon are prepared by the organization that has the business need for the SOI.&#xA;The ConOps is developed by/for the leadership at the enterprise level of the organization using the SOI. In some acquisitions, the ConOps may not be formalized, but rather implied by other business concepts and/or strategies. The OpsCon is prepared at the business level.&#xA;Business management begins with the preparation of the preliminary OpsCon, which summarizes business needs from an operational perspective for the solution classes that address the problem or opportunity. The preliminary OpsCon is then elaborated and refined by business operations into the OpsCon by engagement with the nominated stakeholders during the stakeholder needs and requirements definition process—the final OpsCon therefore contains both the business needs and the stakeholder needs. The OpsCon may be iteratively refined as a result of feedback obtained through the conduct of the system requirements definition and architecture definition processes.&#xA;"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Concept"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Flow" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="Reciprocal action or influence in the form of command/control or flow of information/mattter/energy which can be either discrete or contnuous within operational domain. Operational Interaction may carry items which are input or output to an activity."
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Flow"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Scenario" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="description of an imagined sequence of events that includes the interaction of the product or service with its environment and users, as well as interaction among its product or service components. &#xA;NOTE Operational scenarios are used to evaluate the requirements and design of the system and to verify and validate the system. [SOURCE: ISO/IEC/IEEE 29148:2011(E)]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Scenario"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Capability"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Requirement"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Entity">
+        <eAnnotations source="Individual or organization having a right, share, claim, or interest in a system or in its possession of characteristics that meet their needs and expectations.&#xA;EXAMPLE End users, end user organizations, supporters, developers, producers, trainers, maintainers, disposers, acquirers, supplier organizations and regulatory bodies.&#xA;Note 1 to entry: Some stakeholders can have interests that oppose each other or oppose the system. [SOURCE: ISO/IEC/IEEE 15288:2015]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Need"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Constraint" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Need">
+        <eAnnotations source="A restriction, limit, or regulation imposed on a product, project, or process by stakeholders [SOURCE: ANSI/EIA 1998]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Constraint"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Concept"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Need">
+        <eAnnotations source="Needs, wants, desires, expectations and perceived constraints of identified stakeholders. &#xA;Note : Understanding stakeholder needs for the minimum security and privacy requirements necessary for the&#xA;operational environment minimizes the potential for disruption in plans, schedules, and performance.&#xA;Recommendations for identifying and treating human-system issues can be found in ISO TS 18152.  [SOURCE: ISO/IEC/IEEE 15288:2015]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Need"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Measure of Effectiveness">
+        <eAnnotations source="The &quot;operational&quot; measures of success that are closely related to the achievement of the mission or operational objective being evaluated, in the intended operational environment under a specified set of conditions; i.e., how well the solution achieves theintended purpose.&#xA;Note: MOEs are the overall operational success criteria (e.g., mission performance, safety, operability, operational availability, etc.) stated from the customer/user viewpoint [SOURCE: INCOSE-TP-2002-020-01]&#xA;A measure by which a stakeholder’s expectations will be judged in assessing satisfaction with products or systems produced and delivered in accordance with the associated technical effort. The MOE is deemed to be critical to not only the acceptability of the product by the stakeholder but also critical to operational/mission usage. An MOE is typically qualitative in nature or not able to be used directly as a design-to requirement. [SOURCE: NASA SE Handbook - 2007]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Measure%20of%20Effectiveness"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Requirement"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Requirement">
+        <eAnnotations source="statement that translates or expresses a need from one or many stakeholders and its associated constraints and conditions. Derived from the definition of &quot;Requirement&quot;. [SOURCE: ISO/IEC/IEEE 29148:2011]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Requirement"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Need"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Objective" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Need">
+        <eAnnotations source="A stakeholder concern toward which work is to be directed, a strategic position to be attained, or a purpose to be achieved, a result to be obtained, a product to be produced, or a service to be performed. [adapted from SOURCE: ISO/IEC/IEEE 24765]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Objective"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Concept"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Mission" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Artifact">
+        <eAnnotations source="Primary purpose(s) of the solution.  [SOURCE: ISO/IEC/IEEE 29148:2011]&#xA;the task, together with the purpose, that clearly indicates the action to be taken and the reason therefore;&#xA;in common usage, especially when applied to lower level organizations, a duty assigned to an individual&#xA;or unit; a task; the dispatching of one or more aircraft to accomplish one particular task (after DoD JP 1-&#xA;02 [DoD, 2010])&#xA;A major activity required to accomplish an Agency goal or to effectively pursue a scientific, technological, or engineering opportunity directly related to an Agency goal. Mission needs are independent of any particular system or technological solution. [SOURCE: NASA SE Handbook - 2007]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Mission"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Capability"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Strategic/Mission%20Phases" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Capability"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Interface">
+        <eAnnotations source="A shared boundary between two (or more) operational entities, defined by operational characteristics (interactions) which constitutes a shared contract."
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Flow"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operational Property">
+        <eAnnotations source="Inherent property or characteristic of an operational entity that can be distinguished quantitatively or qualitatively by human or automated means&#xA;[SOURCE: adapted from the attribute definition ISO/IEC 25000:2005]"
+            references="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Property"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SOI" eSuperTypes="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Life%20Cycle"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Life Cycle">
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Life%20Cycle%20Stage"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Life Cycle Stage">
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Concept"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="System requirement Analysis">
+      <eClassifiers xsi:type="ecore:EClass" name="Actor">
+        <eAnnotations source="User, Operator, External System, Environment or Enabler performing a function within the system context. The actor is located outside of the system boundary and interacts with the system. The function performed by the actor transfer material or control flow to a system function."
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Data">
+        <eAnnotations source="Individual units of information. Data is measured, collected and reported, and analyzed, whereupon it can be visualized using graphs, images or other analysis tools."
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Data"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interaction Item" eSuperTypes="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Artifact">
+        <eAnnotations source="Matter/Energy/Information item carried by an Interaction."
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction%20Item"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Data"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Function">
+        <eAnnotations source="An action, a task or an activity performed to achieve a desired outcome which can use input and output flows (SOURCE: adapted from Faisandier)&#xA;process that transforms inputs into outputs. [Buede]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Input"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Output"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Input"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Output"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Activity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="External System" eSuperTypes="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor">
+        <eAnnotations source="A type of actor which is itself a system located outside of the system boudary but within system context"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/External%20System"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor">
+        <eAnnotations source="&lt;system> context determining the setting and circumstances of all influences upon a system. [SOURCE: ISO/IEC/IEEE 42010:2011]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Environment"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Measure of Performance">
+        <eAnnotations source="A quantitative measure that, when met by the design solution, will help ensure that an MOE for a product or system will be satisfied. These MOPs are given special attention during design to ensure that the MOEs to which they are associated are met. There are generally two or more measures of performance for each MOE. [SOURCE: NASA SE Handbook - 2007]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Measure%20of%20Performance"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System%20Requirement"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+        <eAnnotations source="Externally imposed limitation on system requirements, design, or implementation or on the process used to develop or modify a system&#xA;NOTE A constraint is a factor that is imposed on the solution by force or compulsion and may limit or modify the design changes. [SOURCE: ISO/IEC/IEEE 29148:2011]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Constraint"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System%20Requirement"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Constraint"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="System">
+        <eAnnotations source="An integrated set of elements, subsystems, or assemblies that accomplish a defined objective. These elements include products (hardware, software, firmware), processes, people, information, techniques, facilities, services, and other support elements (INCOSE) A combination of interacting elements organized to achieve one or more stated purposes (ISO/IEC/IEEE 15288)"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Element"
+            containment="true" eOpposite="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Element/%"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"
+            eOpposite="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System/%.2"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"
+            eOpposite="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System/%.1"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Element"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Operational%20Entity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="State">
+        <eAnnotations source="condition that characterizes the behaviour of a function/subfunction or element at a point in time. [SOURCE: ISO/IEC 26702]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Life Cycle Stage">
+        <eAnnotations source="period within the life cycle of an entity that relates to the state of its description or realization. [SOURCE: ISO/IEC/IEEE 15289:2015]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Life%20Cycle%20Stage"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Use%20case"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Life Cycle">
+        <eAnnotations source="evolution of a system, product, service, project or other human-made entity from conception through retirement [SOURCE: ISO/IEC/IEEE 15289:2015]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Life%20Cycle"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Life%20Cycle%20Stage"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="System Requirement">
+        <eAnnotations source="statement that translates or expresses a need and its associated constraints and conditions. Derived from the definition of &quot;Requirement&quot;. [SOURCE: ISO/IEC/IEEE 29148:2011]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System%20Requirement"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Stakeholder%20Requirement"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+        <eAnnotations source="An imagined sequence of events that includes the interaction of the product or service with its environment and users, as well as interaction among its product or service components.&#xA;A scenario is a step-by-step description of how the proposed system should operate and interact with its users and its external interfaces under a given set of circumstances. [SOURCE: ISO/IEC/IEEE 29148:2011]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Scenario"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Use case">
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Scenario"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Capability"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interaction">
+        <eAnnotations source="Reciprocal action or influence in the form of command/control or flow of information/mattter/energy which can be either discrete or contnuous. Interaction may carry items which are input or output to an activity/function. [Defined based on Oxford Dictionary definition]&#xA;"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction%20Item"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Input"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Output"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Output">
+        <eAnnotations source="Items that are sent by a function, system element or system."
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Output"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Input">
+        <eAnnotations source="Items that are received by a function, system element or system."
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Input"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Property">
+        <eAnnotations source="Inherent property or characteristic of a system artifact that can be distinguished quantitatively or qualitatively by human or automated means&#xA;[SOURCE: adapted from the attribute definition ISO/IEC 25000:2005]"
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Activity" eOpposite="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Activity/%.2"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Enabler" eSuperTypes="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor">
+        <eAnnotations source="A type of actor interaction with the system which enables one or more system capabilities."
+            references="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Enabler"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Actor"/>
+    </eSubpackages>
+    <eSubpackages name="Solution Architecture Definition">
+      <eClassifiers xsi:type="ecore:EClass" name="Connector">
+        <eAnnotations source="A channel for exchange between two interfaces." references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Connector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction%20Item"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="2"
+            upperBound="2" eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Port"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Artifact">
+        <eAnnotations source="A shared boundary between two (or more) functional units, defined by functional characteristics (interactions), common physical interconnection characteristics, signal characteristics, or other characteristics, as appropriate which constitutes shared contract. [Defined based on Oxford Dictionary definition &amp; ISECF v1 2018 – INCOSE Systems Engineering Competency Framework]"
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Port"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Connector"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="System Element" eSuperTypes="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Artifact">
+        <eAnnotations source="member of a set of elements that constitute a system. EXAMPLE Hardware, software, data, humans, processes (e.g., processes for providing service to users), procedures (e.g., operator instructions), facilities, materials, and naturally occurring entities or any combination. [SOURCE: ISO/IEC/IEEE 29148:2011]"
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Element"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System"
+            eOpposite="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System/%"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Element"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Function"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Port"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="System Requirement">
+        <eAnnotations source="statement that translates or expresses a need and its associated constraints and conditions. Derived from the definition of &quot;Requirement&quot;. [SOURCE: ISO/IEC/IEEE 29148:2011]"
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Requirement"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Artifact"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/System%20Requirement"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Technical Measure">
+        <eAnnotations source="An established set of measures based on the expectations and requirements that will be tracked and assessed to determine overall system or product effectiveness and customer satisfaction. Common terms for these measures are MOEs, MOPs, and TPMs. [SOURCE: NASA SE Handbook - 2007]"
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Technical%20Measure"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Requirement"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Port">
+        <eAnnotations source="may refer to a hardware port, an Internet port number.&#xA;A hardware port is a physical connection on a computer or another electronic device.&#xA;An Internet Port number is to which a protocol is assigned (protocol is a specific set of commands used to transmit data)"
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Port"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interaction">
+        <eAnnotations source="Reciprocal action or influence in the form of command/control or flow of information/mattter/energy which can be either discrete or contnuous. Interaction may carry items which are input or output to an activity/function. [Defined based on Oxford Dictionary definition]&#xA;"
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interaction"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Interaction%20Item"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction%20Item"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Input"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Output"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="System Artifact" eSuperTypes="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Resource">
+        <eAnnotations source="A system function, element, or interface which satisfies one or more system requirements."
+            references="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/System%20Artifact"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Resource"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Operator"/>
+    </eSubpackages>
+    <eSubpackages name="Traceability"/>
+    <eSubpackages name="Generic Pattern">
+      <eClassifiers xsi:type="ecore:EClass" name="Activity">
+        <eAnnotations source="set of cohesive tasks of a process [ISO/IEC/IEEE 15288:2015]"
+            references="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Activity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Interaction"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Activity" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property"
+            eOpposite="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property/%"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Element"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            upperBound="-1" eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interaction"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Control" eSuperTypes="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interaction">
+        <eAnnotations source="A type of Interaction" references="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Control"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interaction">
+        <eAnnotations source="A type of Interaction" references="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Flow"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interaction Item">
+        <eAnnotations source="Matter/Energy/Information item carried by an Interaction."
+            references="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Interaction%20Item"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Interface">
+        <eAnnotations source="A shared boundary between two (or more) functional units, defined by functional characteristics (interactions), common physical interconnection characteristics, signal characteristics, or other characteristics, as appropriate which constitutes shared contract. [Defined based on Oxford Dictionary definition &amp; ISECF v1 2018 – INCOSE Systems Engineering Competency Framework]"
+            references="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interaction"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Element" eOpposite="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Element/%.3"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Interface"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Element">
+        <eAnnotations source="Man made and configured with one or more of: hardware, software, data, humans, processes (e.g., processes for providing service to users), procedures (e.g., operator instructions), facilities, materials and naturally occurring entities. Element can be specified as Logical Element or Physical Element. [SOURCE: ISO/IEC/IEEE 15288:2015]"
+            references="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Element"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Activity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Solution%20Architecture%20Definition/Interface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Element" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Interface" eOpposite="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Interface/%.1"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" upperBound="-1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/Property"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/System%20requirement%20Analysis/State"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Generic%20Pattern/Element"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="Strategic">
+      <eClassifiers xsi:type="ecore:EClass" name="Strategic"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Mission Phases"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Effects">
+        <eStructuralFeatures xsi:type="ecore:EReference" ordered="false" lowerBound="1"
+            eType="#//SE%20Meta%20Model%20V1/Operational%20Need%20Analysis/Measure%20of%20Effectiveness"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Outcome"/>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="Unit Imports">
+    <eSubpackages name="Basic Units">
+      <eSubpackages name="Basic Length"/>
+      <eSubpackages name="Basic Mass"/>
+      <eSubpackages name="Basic Area"/>
+      <eSubpackages name="Basic Volume"/>
+      <eSubpackages name="Basic Time"/>
+      <eSubpackages name="Basic Electric Current"/>
+      <eSubpackages name="Basic Thermodynamic Temperature"/>
+      <eSubpackages name="Basic Amount of Substance"/>
+      <eSubpackages name="Basic Luminous Intensity"/>
+      <eSubpackages name="Basic Speed and Velocity"/>
+      <eSubpackages name="Basic Acceleration"/>
+      <eSubpackages name="Basic Mass Density"/>
+      <eSubpackages name="Basic Electric Current Density"/>
+      <eSubpackages name="Basic Amount of Substance Concentration"/>
+      <eSubpackages name="Basic Magnetic Field Strength"/>
+      <eSubpackages name="Basic Luminance"/>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>
