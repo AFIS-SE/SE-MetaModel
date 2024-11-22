@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Model">
   <eAnnotations source="Author:abhaya.&#xA;Created:02/06/15 16:45.&#xA;Title:Generic SE Meta Model.&#xA;Comment:.&#xA;"
       references="#/"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Toto"/>
   <eSubpackages name="Unit Imports">
     <eSubpackages name="Basic Units">
       <eSubpackages name="Basic Length"/>
