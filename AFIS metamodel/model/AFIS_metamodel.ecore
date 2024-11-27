@@ -51,4 +51,93 @@
     <eClassifiers xsi:type="ecore:EClass" name="Property"/>
     <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow" eSuperTypes="#//Generic_Pattern/Flow"/>
   </eSubpackages>
+  <eSubpackages name="Operational Needs Analysis">
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expresses" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Stakeholder_Need"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Need"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Requirement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalizes" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Stakeholder_Need"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Objective" eSuperTypes="#//Operational%20Needs%20Analysis/Stakeholder_Need">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AnsweredBy" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Constraint" eSuperTypes="#//Operational%20Needs%20Analysis/Stakeholder_Need">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Concept">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="describedBy" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Artifact"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LifeCycle_Stage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LifeCycle">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="progressesThrough" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/LifeCycle_Stage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SoI" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//Operational%20Needs%20Analysis/LifeCycle"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Entity" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="possessesOpModes" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Mode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="participatesIn" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="shares" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="possessesOpProp" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Artifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Mode" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activates" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Activity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Activity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operational_activity"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Activity"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="participatesIn" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="changes" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Scenario" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="describesTheFlowOf" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Activity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Flow" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Interface">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allows" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Flow"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Property"/>
+  </eSubpackages>
+  <eSubpackages name="Strategic">
+    <eClassifiers xsi:type="ecore:EClass" name="Mission">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requires" lowerBound="1"
+          upperBound="-1" eType="#//Strategic/Capability"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
+          upperBound="-1" eType="#//Strategic/Mission_Phases" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Capability">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="produces" lowerBound="1"
+          upperBound="-1" eType="#//Strategic/Effects"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Effects">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="measure_of_effectiveness"
+          eType="#//Strategic/Measure_Of_Effectiveness"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Measure_Of_Effectiveness"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Mission_Phases"/>
+  </eSubpackages>
+  <eSubpackages name="System Requirements Analysis"/>
+  <eSubpackages name="Solution Architectural Design"/>
+  <eSubpackages name="Traceability"/>
 </ecore:EPackage>
