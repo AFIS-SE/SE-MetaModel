@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Metamodel">
+  <eSubpackages name="Generic_Pattern">
+    <eClassifiers xsi:type="ecore:EClass" name="Activity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
+          eType="#//Generic_Pattern/Activity" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing_flow" upperBound="-1"
+          eType="#//Generic_Pattern/Flow" eOpposite="#//Generic_Pattern/Flow/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incoming_flow" upperBound="-1"
+          eType="#//Generic_Pattern/Flow" eOpposite="#//Generic_Pattern/Flow/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="performer" upperBound="-1"
+          eType="#//Generic_Pattern/Element" eOpposite="#//Generic_Pattern/Element/performed_activity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Flow">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
+          eType="#//Generic_Pattern/Flow" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Generic_Pattern/Activity"
+          eOpposite="#//Generic_Pattern/Activity/outgoing_flow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/Activity"
+          eOpposite="#//Generic_Pattern/Activity/incoming_flow"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemFlow" eSuperTypes="#//Generic_Pattern/Flow">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="carried_item" upperBound="-1"
+          eType="#//Generic_Pattern/FlowItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//Generic_Pattern/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FlowItem"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
+          eType="#//Generic_Pattern/Element" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing_interface" upperBound="-1"
+          eType="#//Generic_Pattern/Interface" eOpposite="#//Generic_Pattern/Interface/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incoming_interface" upperBound="-1"
+          eType="#//Generic_Pattern/Interface" eOpposite="#//Generic_Pattern/Interface/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="performed_activity" upperBound="-1"
+          eType="#//Generic_Pattern/Activity" eOpposite="#//Generic_Pattern/Activity/performer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
+          eType="#//Generic_Pattern/Interface" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contained_flow" upperBound="-1"
+          eType="#//Generic_Pattern/Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Generic_Pattern/Element"
+          eOpposite="#//Generic_Pattern/Element/outgoing_interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/Element"
+          eOpposite="#//Generic_Pattern/Element/incoming_interface"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Property"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow" eSuperTypes="#//Generic_Pattern/Flow"/>
+  </eSubpackages>
+</ecore:EPackage>
