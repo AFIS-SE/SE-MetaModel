@@ -1,8 +1,6 @@
 # SE-MetaModel
 Systems Engineering Meta-Model initiated from AFIS (Association Francaise d'Ingenierie Systemes) - INCOSE french chapter
-
-![AFIS_Logo](https://github.com/user-attachments/assets/49a5988e-03bc-4714-b0ba-76e4052a3344)
-
+![AFIS](https://github.com/user-attachments/assets/a0ebfa65-27a4-4e86-897c-942e30d6121a)
 https://www.afis.fr
 
 ![INCOSE_logo](https://github.com/user-attachments/assets/c8f7040f-0395-4a29-8955-959f7abe59cd)
