@@ -1,4 +1,4 @@
-![AFIS](https://github.com/user-attachments/assets/ac56f1f2-725b-4764-a061-90a947d27833)# SE-MetaModel
+# SE-MetaModel
 Systems Engineering Meta-Model initiated from AFIS (Association Francaise d'Ingenierie Systemes) - INCOSE french chapter
 
 ![AFIS_Logo](https://github.com/user-attachments/assets/49a5988e-03bc-4714-b0ba-76e4052a3344)
