@@ -18,15 +18,13 @@
           <details key="documentation" value="A performer may perform several functions.&#xD;&#xA;A function may be performed completely and individually by several performers.&#xD;&#xA;"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//Generic_Pattern/FunctionKind"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//Generic_Pattern/Function_Kind"
           changeable="false" defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="state_machine" eType="#//Generic_Pattern/StateMachine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="state_machine" eType="#//Generic_Pattern/State_Machine">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Only for a Function of ControlFunction kind."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="affects" upperBound="-1"
-          eType="#//System%20Needs%20Analysis/SystemProperty"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Flow">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -38,18 +36,21 @@
           eOpposite="#//Generic_Pattern/Function/outgoing_flow"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/Function"
           eOpposite="#//Generic_Pattern/Function/incoming_flow"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="flowitem" upperBound="-1"
-          eType="#//Generic_Pattern/FlowItem"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ItemFlow" eSuperTypes="#//Generic_Pattern/Flow">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//Generic_Pattern/Flow_Kind"
+          defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="carried_item" upperBound="-1"
-          eType="#//Generic_Pattern/FlowItem"/>
+          eType="#//Generic_Pattern/Item">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="For a control flow, carried items must be discrete."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ControlFlow" eSuperTypes="#//Generic_Pattern/Flow"/>
-    <eClassifiers xsi:type="ecore:EClass" name="FlowItem">
+    <eClassifiers xsi:type="ecore:EClass" name="Item">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Matter/Energy/Information item carried by a Flow"/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//Generic_Pattern/Item_Kind"
+          changeable="false" defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
     <eClassifiers xsi:type="ecore:EClass" name="Performer">
@@ -64,17 +65,17 @@
           eType="#//Generic_Pattern/Interface" eOpposite="#//Generic_Pattern/Interface/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="performed_function" upperBound="-1"
           eType="#//Generic_Pattern/Function" eOpposite="#//Generic_Pattern/Function/performer"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="state_machine" eType="#//Generic_Pattern/StateMachine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="state_machine" eType="#//Generic_Pattern/State_Machine">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="When Function of ControlFunction kind is not used to define a State Machine."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
+    <eClassifiers xsi:type="ecore:EClass" name="State_Machine">
       <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
           eType="#//Generic_Pattern/State" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
-          eType="#//Generic_Pattern/StateTransition" containment="true"/>
+          eType="#//Generic_Pattern/State_Transition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Interface">
       <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
@@ -85,18 +86,14 @@
           eOpposite="#//Generic_Pattern/Performer/outgoing_interface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/Performer"
           eOpposite="#//Generic_Pattern/Performer/incoming_interface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1"
-          eType="#//Solution%20Architectural%20Design/port"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" upperBound="-1"
-          eType="#//Solution%20Architectural%20Design/connector"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow"/>
     <eClassifiers xsi:type="ecore:EClass" name="Process"/>
-    <eClassifiers xsi:type="ecore:EEnum" name="FunctionKind">
-      <eLiterals name="TransformFunction" literal="TransformFunction"/>
-      <eLiterals name="ControlFunction" value="1" literal="ControlFunction"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="Function_Kind">
+      <eLiterals name="Transform_Function" literal="TransformFunction"/>
+      <eLiterals name="Control_Function" value="1" literal="ControlFunction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StateTransition">
+    <eClassifiers xsi:type="ecore:EClass" name="State_Transition">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Generic_Pattern/State"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/State"/>
     </eClassifiers>
@@ -110,6 +107,14 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Requirement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Property"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="Item_Kind">
+      <eLiterals name="Discrete"/>
+      <eLiterals name="Continuous" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Flow_Kind">
+      <eLiterals name="Item_Flow"/>
+      <eLiterals name="Control_Flow" value="1"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Operational Needs Analysis">
     <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
@@ -163,7 +168,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="SoI" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//Operational%20Needs%20Analysis/LifeCycle"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Entity" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Entity" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/Performer">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An entity (user, other system, device, group, organization...) surrounding the system-of-interest which interacts with the SOI and influence it's intended mission. [Defined based on the definition from ARCADIA]"/>
       </eAnnotations>
@@ -188,7 +193,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="activates" lowerBound="1"
           upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Activity"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Activity">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Activity" eSuperTypes="#//Generic_Pattern/Function">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An action, a task or a function performed to achieve a desired outcome which can use input and output flows or command and control events."/>
       </eAnnotations>
@@ -207,12 +212,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="describesTheFlowOf" lowerBound="1"
           upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Activity"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Flow" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Flow" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/Flow">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Reciprocal action or influence in the form of command/control or flow of information/matter/energy which can be either discrete or contnuous within operational domain. Operational Interaction may carry items which are inputs or outputs to an activity"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Interface">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Interface" eSuperTypes="#//Generic_Pattern/Interface">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A shared boundary between two (or more) operational entities, defined by operational characteristics (interactions) which constitutes a shared contract."/>
       </eAnnotations>
@@ -224,6 +229,7 @@
         <details key="documentation" value="Inherent property or characteristic of an operational entity that can be distinguished quantitatively or qualitatively by human or automated means [SOURCE: adapted from the attribute definition ISO/IEC 25000:2005]"/>
       </eAnnotations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Item" eSuperTypes="#//Generic_Pattern/Item"/>
   </eSubpackages>
   <eSubpackages name="Strategic">
     <eClassifiers xsi:type="ecore:EClass" name="Mission">
@@ -279,7 +285,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="connects" lowerBound="2"
           upperBound="2" eType="#//Solution%20Architectural%20Design/port"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="convey" upperBound="-1"
-          eType="#//Generic_Pattern/FlowItem"/>
+          eType="#//Generic_Pattern/Item"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TechnicalPerformanceMeasure">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
