@@ -26,4 +26,4 @@ To contribute to the meta-model community, we propose the following organization
 
 # License
 
-This work is licensed under conditions of cc-by-sa terms.
+This work is licensed under conditions of cc-by-sa terms : https://creativecommons.org/licenses/by-sa/4.0/deed.en
