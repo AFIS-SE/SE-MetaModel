@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Metamodel">
   <eSubpackages name="Generic_Pattern">
-    <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//Generic_Pattern/Thing">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Formerly Activity."/>
       </eAnnotations>
@@ -26,7 +26,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Flow">
+    <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//Generic_Pattern/Thing">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Formerly Interation."/>
       </eAnnotations>
@@ -52,8 +52,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//Generic_Pattern/Item_Kind"
           changeable="false" defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Performer">
+    <eClassifiers xsi:type="ecore:EClass" name="Performer" eSuperTypes="#//Generic_Pattern/Thing">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Formerly Element."/>
       </eAnnotations>
@@ -71,13 +70,13 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="State_Machine">
+    <eClassifiers xsi:type="ecore:EClass" name="State_Machine" eSuperTypes="#//Generic_Pattern/Thing">
       <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
           eType="#//Generic_Pattern/State" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
           eType="#//Generic_Pattern/State_Transition" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Interface">
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Generic_Pattern/Thing">
       <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
           eType="#//Generic_Pattern/Interface" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contained_flow" upperBound="-1"
@@ -93,11 +92,11 @@
       <eLiterals name="Transform_Function" literal="TransformFunction"/>
       <eLiterals name="Control_Function" value="1" literal="ControlFunction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="State_Transition">
+    <eClassifiers xsi:type="ecore:EClass" name="State_Transition" eSuperTypes="#//Generic_Pattern/Thing">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Generic_Pattern/State"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/State"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//Generic_Pattern/Thing">
       <eStructuralFeatures xsi:type="ecore:EReference" name="active_function" upperBound="-1"
           eType="#//Generic_Pattern/Function">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -105,7 +104,12 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Requirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Requirement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalized_constraint"
+          upperBound="-1" eType="#//Generic_Pattern/Constraint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formalized_thing" upperBound="-1"
+          eType="#//Generic_Pattern/Thing"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property"/>
     <eClassifiers xsi:type="ecore:EEnum" name="Item_Kind">
       <eLiterals name="Discrete"/>
@@ -114,6 +118,20 @@
     <eClassifiers xsi:type="ecore:EEnum" name="Flow_Kind">
       <eLiterals name="Item_Flow"/>
       <eLiterals name="Control_Flow" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constrained_thing" upperBound="-1"
+          eType="#//Generic_Pattern/Thing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
+          eType="#//Generic_Pattern/Constraint" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Thing" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Capability">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ability to achieve a specific objective or desired effect under stated conditions.&#xD;&#xA;Adapted from [INCOSE SE Handbook V5]"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="objective" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Operational Needs Analysis">
