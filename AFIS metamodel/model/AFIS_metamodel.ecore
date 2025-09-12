@@ -27,7 +27,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//Generic_Pattern/Thing">
+    <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true" eSuperTypes="#//Generic_Pattern/Thing">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Formerly Interation."/>
       </eAnnotations>
@@ -88,16 +88,18 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Generic_Pattern/Performer"
           eOpposite="#//Generic_Pattern/Performer/incoming_interface"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Process_Item_Flow" eSuperTypes="#//Generic_Pattern/Process_Flow">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="flow" eType="#//Generic_Pattern/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Item_Flow" eSuperTypes="#//Generic_Pattern/Flow">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kind" eType="#//Generic_Pattern/Item_Flow_Kind"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Process">
       <eStructuralFeatures xsi:type="ecore:EReference" name="process_action" upperBound="-1"
           eType="#//Generic_Pattern/Process_Action" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="process_flow" upperBound="-1"
-          eType="#//Generic_Pattern/Process_Flow" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="flow" upperBound="-1"
+          eType="#//Generic_Pattern/Flow" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="process_performer" upperBound="-1"
           eType="#//Generic_Pattern/Process_Performer" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scenario" lowerBound="1"
+          upperBound="-1" eType="#//Generic_Pattern/Scenario" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Function_Kind">
       <eLiterals name="Transform_Function" literal="TransformFunction"/>
@@ -131,12 +133,17 @@
       <eLiterals name="Control_Flow" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Constraint">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="constrained_thing" upperBound="-1"
-          eType="#//Generic_Pattern/Thing"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="child" upperBound="-1"
           eType="#//Generic_Pattern/Constraint" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constrained_thing" upperBound="-1"
+          eType="#//Generic_Pattern/Thing" eOpposite="#//Generic_Pattern/Thing/is_contrained_by"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Thing" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Thing" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="is_contrained_by" upperBound="-1"
+          eType="#//Generic_Pattern/Constraint" eOpposite="#//Generic_Pattern/Constraint/constrained_thing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//Generic_Pattern/Property.1" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Capability">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ability to achieve a specific objective or desired effect under stated conditions.&#xD;&#xA;Adapted from [INCOSE SE Handbook V5]"/>
@@ -152,16 +159,23 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
           eType="#//Generic_Pattern/Process"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UseCase"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Scenario"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ordered_sequence_process_flows"
+          lowerBound="1" upperBound="-1" eType="#//Generic_Pattern/Flow"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Process_Performer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="performer" eType="#//Generic_Pattern/Performer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Process_Action">
       <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//Generic_Pattern/Function"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Process_Flow" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Process_Seq_Flow" eSuperTypes="#//Generic_Pattern/Process_Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Seq_Flow" eSuperTypes="#//Generic_Pattern/Flow"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="Item_Flow_Kind">
+      <eLiterals name="Information"/>
+      <eLiterals name="Energy" value="1"/>
+      <eLiterals name="Matter" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Property"/>
   </eSubpackages>
   <eSubpackages name="Operational Needs Analysis">
     <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
