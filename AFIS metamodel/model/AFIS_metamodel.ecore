@@ -141,7 +141,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Thing" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="is_contrained_by" upperBound="-1"
           eType="#//Generic_Pattern/Constraint" eOpposite="#//Generic_Pattern/Constraint/constrained_thing"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
           eType="#//Generic_Pattern/Property.1" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Capability">
