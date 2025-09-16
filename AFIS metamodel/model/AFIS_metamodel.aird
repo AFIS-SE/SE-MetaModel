@@ -25,7 +25,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="AFIS_metamodel.ecore#//Solution%20Architectural%20Design"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_OwuRENMhEe-pnbGl2NLqMw" name="Generic Pattern - Main" repPath="#_Owm8UNMhEe-pnbGl2NLqMw" changeId="1757689684474">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_OwuRENMhEe-pnbGl2NLqMw" name="Generic Pattern - Main" repPath="#_Owm8UNMhEe-pnbGl2NLqMw" changeId="1758050594997">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="AFIS_metamodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -5824,7 +5824,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_OwzxB9MhEe-pnbGl2NLqMw"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_OwzxCNMhEe-pnbGl2NLqMw" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OwzxCdMhEe-pnbGl2NLqMw" x="538" y="27" width="147" height="81"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OwzxCdMhEe-pnbGl2NLqMw" x="538" y="28" width="147" height="81"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_OwzxCtMhEe-pnbGl2NLqMw" type="3009" element="_OwrN5dMhEe-pnbGl2NLqMw">
               <children xmi:type="notation:Node" xmi:id="_OwzxC9MhEe-pnbGl2NLqMw" type="5004"/>
@@ -5901,7 +5901,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_qyORY9TsEe-0Z-lsRfbfOg"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_qyNqb9TsEe-0Z-lsRfbfOg" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qyNqcNTsEe-0Z-lsRfbfOg" x="763" y="24" width="129" height="87"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qyNqcNTsEe-0Z-lsRfbfOg" x="728" y="28" width="129" height="87"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_woFmUI_dEfCvXZSXbtJHhA" type="3009" element="_wnja0I_dEfCvXZSXbtJHhA">
               <children xmi:type="notation:Node" xmi:id="_woGNYI_dEfCvXZSXbtJHhA" type="5004"/>
@@ -5922,7 +5922,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_woG0co_dEfCvXZSXbtJHhA"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_woFmUY_dEfCvXZSXbtJHhA" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_woFmUo_dEfCvXZSXbtJHhA" x="919" y="27" width="120" height="84"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_woFmUo_dEfCvXZSXbtJHhA" x="900" y="28" width="120" height="84"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_OwzxJtMhEe-pnbGl2NLqMw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_OwzxJ9MhEe-pnbGl2NLqMw"/>
@@ -6275,7 +6275,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_OwrNx9MhEe-pnbGl2NLqMw" name="Flow" tooltipText="&#xA;WARNING : There should not be a feature named 'Kind' as well a feature named 'kind'&#xA;WARNING : The default value literal '' must be a valid literal of the attribute's type" outgoingEdges="_Owr06NMhEe-pnbGl2NLqMw _Owr03NMhEe-pnbGl2NLqMw" incomingEdges="_Owr06NMhEe-pnbGl2NLqMw _Owr08NMhEe-pnbGl2NLqMw _Owr09NMhEe-pnbGl2NLqMw _Owr0-NMhEe-pnbGl2NLqMw" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_OwrNx9MhEe-pnbGl2NLqMw" name="Flow" tooltipText="&#xA;WARNING : The default value literal '' must be a valid literal of the attribute's type" outgoingEdges="_Owr06NMhEe-pnbGl2NLqMw _Owr03NMhEe-pnbGl2NLqMw" incomingEdges="_Owr06NMhEe-pnbGl2NLqMw _Owr08NMhEe-pnbGl2NLqMw _Owr09NMhEe-pnbGl2NLqMw _Owr0-NMhEe-pnbGl2NLqMw" width="12" height="10">
         <target xmi:type="ecore:EClass" href="AFIS_metamodel.ecore#//Generic_Pattern/Flow"/>
         <semanticElements xmi:type="ecore:EClass" href="AFIS_metamodel.ecore#//Generic_Pattern/Flow"/>
         <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ex1hBY_eEfCvXZSXbtJHhA" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
