@@ -159,7 +159,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
           eType="#//Generic_Pattern/Process"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+    <eClassifiers xsi:type="ecore:EClass" name="Scenario" abstract="true" interface="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ordered_sequence_process_flows"
           lowerBound="1" upperBound="-1" eType="#//Generic_Pattern/Flow"/>
     </eClassifiers>
@@ -178,7 +178,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Property"/>
   </eSubpackages>
   <eSubpackages name="Operational Needs Analysis">
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity #//Generic_Pattern/Process_Performer">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Individual or organization having a right, share, claim, or interest in a system or in its possession of characteristics that meet their needs and expectations.&#xD;&#xA;EXAMPLE End users, end user organizations, supporters, developers, producers, trainers, maintainers, disposers, acquirers, supplier organizations and regulatory bodies.&#xD;&#xA;Note 1 to entry: Some stakeholders can have interests that oppose each other or oppose the system. [SOURCE: ISO/IEC/IEEE 15288:2015]&#xD;&#xA;"/>
       </eAnnotations>
@@ -190,7 +190,7 @@
         <details key="documentation" value="Needs, wants, desires, expectations and perceived constraints of identified stakeholders. &#xD;&#xA;Note : Understanding stakeholder needs for the minimum security and privacy requirements necessary for the operational environment minimizes the potential for disruption in plans, schedules, and performance.&#xD;&#xA;Recommendations for identifying and treating human-system issues can be found in ISO TS 18152.  [SOURCE: ISO/IEC/IEEE 15288:2015]&#xD;&#xA;"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Requirement">
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Requirement" eSuperTypes="#//Generic_Pattern/Requirement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Statement that translates or expresses a need from one or many stakeholders and its associated constraints and conditions. Derived from the definition of &quot;Requirement&quot;. [SOURCE: ISO/IEC/IEEE 29148:2011]&#xD;&#xA;The requirements for a system that can provide the services needed by users and other stakeholders in a defined environment. [ISO/IEC/IEEE 15288:2015]&#xD;&#xA;"/>
       </eAnnotations>
@@ -204,7 +204,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="AnsweredBy" lowerBound="1"
           upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Constraint" eSuperTypes="#//Operational%20Needs%20Analysis/Stakeholder_Need">
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Constraint" eSuperTypes="#//Operational%20Needs%20Analysis/Stakeholder_Need #//Generic_Pattern/Constraint">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A restriction, limit, or regulation imposed on a product, project, or process by stakeholders [SOURCE: ANSI/EIA 1998]"/>
       </eAnnotations>
@@ -226,7 +226,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="progressesThrough" lowerBound="1"
           upperBound="-1" eType="#//Operational%20Needs%20Analysis/LifeCycle_Stage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SoI" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="SoI" eSuperTypes="#//Generic_Pattern/Performer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//Operational%20Needs%20Analysis/LifeCycle"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operational_Entity" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/Performer">
@@ -247,7 +247,7 @@
         <details key="documentation" value="An element which is included within operational concept to describe it with adequate details."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Mode" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Mode" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/State">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An operational situation/configuration of a system characterized by its active services/functions. Inside an operational mode the system can perform specific operational scenarios, and so activate the corresponding services/functions. [SOURCE: SEBoK:2017]&#xD;&#xA;distinct operating capability of the system during which some or all of the system’s functions may be performed to a full or limited degree. [Buede]&#xD;&#xA;"/>
       </eAnnotations>
@@ -266,7 +266,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="changes" upperBound="-1"
           eType="#//Operational%20Needs%20Analysis/Operational_Property"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Scenario" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Scenario" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/Scenario">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Description of an imagined sequence of events that includes the interaction of the product or service with its environment and users, as well as interaction among its product or service components. &#xD;&#xA;NOTE Operational scenarios are used to evaluate the requirements and design of the system and to verify and validate the system. [SOURCE: ISO/IEC/IEEE 29148:2011(E)]&#xD;&#xA;"/>
       </eAnnotations>
@@ -285,12 +285,22 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="allows" upperBound="-1"
           eType="#//Operational%20Needs%20Analysis/Operational_Flow"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Property">
+    <eClassifiers xsi:type="ecore:EClass" name="Operational_Property" eSuperTypes="#//Generic_Pattern/Property">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Inherent property or characteristic of an operational entity that can be distinguished quantitatively or qualitatively by human or automated means [SOURCE: adapted from the attribute definition ISO/IEC 25000:2005]"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operational_Item" eSuperTypes="#//Generic_Pattern/Item"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OpsCon">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="verbal and graphic statement of an organizations assumptions or intent in regard to an operation or series of operations of a specific system or a related set of specific new, existing or modified systems (ISO/IEC/IEEE 15288:2023 Systems and software engineering--System life cycle processes, 3.23) Note: The operational concept is designed to give an overall picture of the operations using one or more specific systems, or set of related systems, in the organization's operational environment from the users' and operators' perspective."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Stakeholder"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="soi" lowerBound="1" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/SoI"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="satisfies" eType="#//Strategic/ConOps"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Strategic">
     <eClassifiers xsi:type="ecore:EClass" name="Mission">
@@ -319,6 +329,18 @@
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mission_Phases"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConOps">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ConOps is a verbal and/or graphic statement prepared for the organization’s leadership that describes the assumptions or intent regarding the overall operation or series of operations of the enterprise, to include any new capability (ANSI/AIAA, 2012; ISO/IEC/IEEE 29148, 2011)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mission" upperBound="-1"
+          eType="#//Strategic/Mission" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="consider" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Stakeholder"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="organization" lowerBound="1"
+          eType="#//Strategic/Organization"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Organization"/>
   </eSubpackages>
   <eSubpackages name="Solution Architectural Design">
     <eClassifiers xsi:type="ecore:EClass" name="SystemElement" eSuperTypes="#//Solution%20Architectural%20Design/SystemArtifact">
