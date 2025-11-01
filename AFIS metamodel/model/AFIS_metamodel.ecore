@@ -202,25 +202,18 @@
         <details key="documentation" value="A stakeholder concern toward which work is to be directed, a strategic position to be attained, or a purpose to be achieved, a result to be obtained, a product to be produced, or a service to be performed. [adapted from SOURCE: ISO/IEC/IEEE 24765]"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AnsweredBy" lowerBound="1"
-          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/OpsCon"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Stakeholder_Constraint" eSuperTypes="#//Operational%20Needs%20Analysis/Stakeholder_Need #//Generic_Pattern/Constraint">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A restriction, limit, or regulation imposed on a product, project, or process by stakeholders [SOURCE: ANSI/EIA 1998]"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="restricts" upperBound="-1"
-          eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operational_Concept">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="User definition of how a specific system will be utilized within the organization. [Source ANSI/AIAA G-043A-2012e]."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="describedBy" lowerBound="1"
-          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Artifact"/>
+          eType="#//Operational%20Needs%20Analysis/OpsCon"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LifeCycle_Stage">
       <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
-          eType="#//Operational%20Needs%20Analysis/Operational_Concept"/>
+          eType="#//Operational%20Needs%20Analysis/OpsCon"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LifeCycle">
       <eStructuralFeatures xsi:type="ecore:EReference" name="progressesThrough" lowerBound="1"
@@ -228,6 +221,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SoI" eSuperTypes="#//Generic_Pattern/Performer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//Operational%20Needs%20Analysis/LifeCycle"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isaSetOf" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Operational_Entity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isComposedOf" upperBound="-1"
+          eType="#//System%20Needs%20Analysis/System"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exhibits" upperBound="-1"
+          eType="#//System%20Needs%20Analysis/SystemCapability"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operational_Entity" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/Performer">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -265,6 +264,8 @@
           upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Flow"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="changes" upperBound="-1"
           eType="#//Operational%20Needs%20Analysis/Operational_Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappedTo" upperBound="-1"
+          eType="#//Strategic/Capability"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operational_Scenario" eSuperTypes="#//Operational%20Needs%20Analysis/Operational_Artifact #//Generic_Pattern/Scenario">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -297,20 +298,25 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" upperBound="-1"
           eType="#//Operational%20Needs%20Analysis/Stakeholder"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="soi" lowerBound="1" upperBound="-1"
-          eType="#//Operational%20Needs%20Analysis/SoI"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="soi" lowerBound="1" eType="#//Operational%20Needs%20Analysis/SoI"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="satisfies" eType="#//Strategic/ConOps"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="describedBy" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Artifact"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Usecase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isdescribedBy" lowerBound="1"
+          upperBound="-1" eType="#//Operational%20Needs%20Analysis/Operational_Scenario"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Strategic">
-    <eClassifiers xsi:type="ecore:EClass" name="Mission">
+    <eClassifiers xsi:type="ecore:EClass" name="MissionScenario">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The task, together with the purpose, that clearly indicates the action to be taken and the reason therefore. (DoD. 2017. Defense Acquisition Guidebook (DAG). Washington, D.C.: Pentagon, US Department of Defense stated in RT-171: Mission Engineering Competencies Technical Report, SERC, April 30, 2018)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requires" lowerBound="1"
           upperBound="-1" eType="#//Strategic/Capability"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
-          upperBound="-1" eType="#//Strategic/Mission_Phases" containment="true"/>
+          upperBound="-1" eType="#//Strategic/MissionStages" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Capability">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -318,6 +324,8 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="produces" lowerBound="1"
           upperBound="-1" eType="#//Strategic/Effects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usecase" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/Usecase"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Effects">
       <eStructuralFeatures xsi:type="ecore:EReference" name="measure_of_effectiveness"
@@ -328,19 +336,26 @@
         <details key="documentation" value="The &quot;operational&quot; measures of success that are closely related to the achievement of the mission or operational objective being evaluated, in the intended operational environment under a specified set of conditions; i.e., how well the solution achieves theintended purpose.&#xD;&#xA;Note: MOEs are the overall operational success criteria (e.g., mission performance, safety, operability, operational availability, etc.) stated from the customer/user viewpoint [SOURCE: INCOSE-TP-2002-020-01]&#xD;&#xA;A measure by which a stakeholder’s expectations will be judged in assessing satisfaction with products or systems produced and delivered in accordance with the associated technical effort. The MOE is deemed to be critical to not only the acceptability of the product by the stakeholder but also critical to operational/mission usage. An MOE is typically qualitative in nature or not able to be used directly as a design-to requirement. [SOURCE: NASA SE Handbook - 2007]&#xD;&#xA;"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Mission_Phases"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MissionStages"/>
     <eClassifiers xsi:type="ecore:EClass" name="ConOps">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ConOps is a verbal and/or graphic statement prepared for the organization’s leadership that describes the assumptions or intent regarding the overall operation or series of operations of the enterprise, to include any new capability (ANSI/AIAA, 2012; ISO/IEC/IEEE 29148, 2011)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mission" upperBound="-1"
-          eType="#//Strategic/Mission" containment="true"/>
+          eType="#//Strategic/MissionScenario" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="consider" upperBound="-1"
           eType="#//Operational%20Needs%20Analysis/Stakeholder"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="organization" lowerBound="1"
-          eType="#//Strategic/Organization"/>
+          upperBound="-1" eType="#//Strategic/Organization"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Organization"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Organization">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mission" upperBound="-1"
+          eType="#//Strategic/MissionScenario"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MissionContext">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mission" upperBound="-1"
+          eType="#//Strategic/MissionScenario"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="Solution Architectural Design">
     <eClassifiers xsi:type="ecore:EClass" name="SystemElement" eSuperTypes="#//Solution%20Architectural%20Design/SystemArtifact">
@@ -380,30 +395,7 @@
   </eSubpackages>
   <eSubpackages name="Traceability"/>
   <eSubpackages name="System Needs Analysis">
-    <eClassifiers xsi:type="ecore:EClass" name="LifeCycle">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Evolution of a system, product, service, project or other human-made entity from conception through retirement [SOURCE: ISO/IEC/IEEE 15289:2015]"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
-          eType="#//System%20Needs%20Analysis/LifeCycleStage" eOpposite="#//System%20Needs%20Analysis/LifeCycleStage/lifecycle"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LifeCycleStage">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Period within the life cycle of an entity that relates to the state of its description or realization. [SOURCE: ISO/IEC/IEEE 15289:2015]"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" lowerBound="1"
-          eType="#//System%20Needs%20Analysis/LifeCycle" eOpposite="#//System%20Needs%20Analysis/LifeCycle/contains"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
-          eType="#//System%20Needs%20Analysis/UseCase"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UseCase">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A use case describes the interaction between user and system to achieve some wanted function. Description of the behavioral requirements of a system and its interaction with a user. [ISO/IEC/IEEE 26515:2011]"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="describedBy" upperBound="-1"
-          eType="#//System%20Needs%20Analysis/Scenario"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+    <eClassifiers xsi:type="ecore:EClass" name="SystemScenario" eSuperTypes="#//Generic_Pattern/Scenario">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An imagined sequence of events that includes the interaction of the product or service with its environment and users, as well as interaction among its product or service components.&#xD;&#xA;A scenario is a step-by-step description of how the proposed system should operate and interact with its users and its external interfaces under a given set of circumstances. [SOURCE: ISO/IEC/IEEE 29148:2011]&#xD;&#xA;"/>
       </eAnnotations>
@@ -416,6 +408,8 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="User, Operator, External System, Environment or Enabler performing a function within the system context. The actor is located outside of the system boundary and interacts with the system. The functions performed by the actor transfer information, matter or energy to a system function."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interactsWith" upperBound="-1"
+          eType="#//Operational%20Needs%20Analysis/SoI"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalSystem" eSuperTypes="#//System%20Needs%20Analysis/Actor">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -467,6 +461,8 @@
           eType="#//System%20Needs%20Analysis/SystemProperty"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemelement" upperBound="-1"
           eType="#//Solution%20Architectural%20Design/SystemElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="performs" upperBound="-1"
+          eType="#//Generic_Pattern/Function"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemConstraint" eSuperTypes="#//Generic_Pattern/Constraint">
       <eStructuralFeatures xsi:type="ecore:EReference" name="defines" lowerBound="1"
@@ -475,5 +471,9 @@
           upperBound="-1" eType="#//System%20Needs%20Analysis/System"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemProperty" eSuperTypes="#//Generic_Pattern/Property"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemCapability" eSuperTypes="#//Generic_Pattern/Capability">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scenario" upperBound="-1"
+          eType="#//System%20Needs%20Analysis/SystemScenario"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
